@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="380" viewBox="0 0 860 380" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="860" height="380" fill="#ffffff"/>
+  <!-- Left panel -->
+  <text x="215" y="38" text-anchor="middle" font-size="17" font-weight="bold" fill="#1e293b">Threads: one thread per wait</text>
+  <!-- threads -->
+  <g>
+    <rect x="40" y="60" width="75" height="210" rx="8" fill="#eef2f7" stroke="#64748b"/>
+    <text x="77" y="82" text-anchor="middle" font-size="13" fill="#1e293b">T1</text>
+    <rect x="50" y="95" width="55" height="40" rx="6" fill="#2563eb"/>
+    <text x="77" y="119" text-anchor="middle" font-size="12" fill="#ffffff">task</text>
+    <text x="77" y="160" text-anchor="middle" font-size="12" fill="#16a34a">working</text>
+  </g>
+  <g>
+    <rect x="130" y="60" width="75" height="210" rx="8" fill="#eef2f7" stroke="#64748b"/>
+    <text x="167" y="82" text-anchor="middle" font-size="13" fill="#1e293b">T2</text>
+    <rect x="140" y="95" width="55" height="40" rx="6" fill="#cbd5e1"/>
+    <text x="167" y="119" text-anchor="middle" font-size="12" fill="#475569">task</text>
+    <text x="167" y="160" text-anchor="middle" font-size="12" fill="#f59e0b">zzz frozen</text>
+  </g>
+  <g>
+    <rect x="220" y="60" width="75" height="210" rx="8" fill="#eef2f7" stroke="#64748b"/>
+    <text x="257" y="82" text-anchor="middle" font-size="13" fill="#1e293b">T3</text>
+    <rect x="230" y="95" width="55" height="40" rx="6" fill="#cbd5e1"/>
+    <text x="257" y="119" text-anchor="middle" font-size="12" fill="#475569">task</text>
+    <text x="257" y="160" text-anchor="middle" font-size="12" fill="#f59e0b">zzz frozen</text>
+  </g>
+  <g>
+    <rect x="310" y="60" width="75" height="210" rx="8" fill="#eef2f7" stroke="#64748b"/>
+    <text x="347" y="82" text-anchor="middle" font-size="13" fill="#1e293b">T4</text>
+    <rect x="320" y="95" width="55" height="40" rx="6" fill="#cbd5e1"/>
+    <text x="347" y="119" text-anchor="middle" font-size="12" fill="#475569">task</text>
+    <text x="347" y="160" text-anchor="middle" font-size="12" fill="#f59e0b">zzz frozen</text>
+  </g>
+  <text x="215" y="305" text-anchor="middle" font-size="14" fill="#dc2626">10,000 waits → 10,000 frozen threads</text>
+  <text x="215" y="328" text-anchor="middle" font-size="12" fill="#64748b">each frozen thread still holds memory (its stack)</text>
+
+  <!-- divider -->
+  <line x1="430" y1="30" x2="430" y2="350" stroke="#e2e8f0" stroke-width="2"/>
+
+  <!-- Right panel -->
+  <text x="645" y="38" text-anchor="middle" font-size="17" font-weight="bold" fill="#1e293b">Async: many tasks share few threads</text>
+  <g>
+    <rect x="470" y="60" width="95" height="210" rx="8" fill="#eef2f7" stroke="#64748b"/>
+    <text x="517" y="82" text-anchor="middle" font-size="13" fill="#1e293b">T1</text>
+    <rect x="480" y="95" width="75" height="40" rx="6" fill="#2563eb"/>
+    <text x="517" y="119" text-anchor="middle" font-size="12" fill="#ffffff">task A</text>
+    <text x="517" y="160" text-anchor="middle" font-size="12" fill="#16a34a">always working</text>
+  </g>
+  <g>
+    <rect x="610" y="60" width="220" height="210" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-dasharray="6 4"/>
+    <text x="720" y="84" text-anchor="middle" font-size="13" font-weight="bold" fill="#b45309">waiting room</text>
+    <text x="720" y="102" text-anchor="middle" font-size="11" fill="#b45309">(costs almost nothing)</text>
+    <rect x="630" y="115" width="80" height="30" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="670" y="135" text-anchor="middle" font-size="11" fill="#78350f">task B zzz</text>
+    <rect x="730" y="115" width="80" height="30" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="770" y="135" text-anchor="middle" font-size="11" fill="#78350f">task C zzz</text>
+    <rect x="630" y="160" width="80" height="30" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="670" y="180" text-anchor="middle" font-size="11" fill="#78350f">task D zzz</text>
+    <rect x="730" y="160" width="80" height="30" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="770" y="180" text-anchor="middle" font-size="11" fill="#78350f">task E zzz</text>
+  </g>
+  <!-- arrows -->
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 z" fill="#475569"/>
+    </marker>
+  </defs>
+  <path d="M565,110 C 590,100 600,100 608,112" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arr)"/>
+  <text x="588" y="95" text-anchor="middle" font-size="11" fill="#475569">hits a wait → parks</text>
+  <path d="M608,205 C 595,220 575,220 567,205" fill="none" stroke="#16a34a" stroke-width="1.6" marker-end="url(#arr)"/>
+  <text x="588" y="238" text-anchor="middle" font-size="11" fill="#16a34a">knock! → resumes</text>
+  <text x="645" y="305" text-anchor="middle" font-size="14" fill="#16a34a">10,000 waits → a few busy threads</text>
+  <text x="645" y="328" text-anchor="middle" font-size="12" fill="#64748b">waiting tasks are cheap notes, not frozen threads</text>
+</svg>

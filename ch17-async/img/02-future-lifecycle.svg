@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="250" viewBox="0 0 860 250" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="860" height="250" fill="#ffffff"/>
+  <defs>
+    <marker id="arr2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 z" fill="#475569"/>
+    </marker>
+  </defs>
+  <text x="430" y="34" text-anchor="middle" font-size="17" font-weight="bold" fill="#1e293b">Life of a Future</text>
+
+  <!-- stage 1 -->
+  <rect x="25" y="70" width="240" height="110" rx="10" fill="#fffbeb" stroke="#f59e0b"/>
+  <text x="145" y="98" text-anchor="middle" font-size="14" font-weight="bold" fill="#b45309">1. Created — lazy</text>
+  <text x="145" y="122" text-anchor="middle" font-size="12" fill="#78350f">let f = fetch_data();</text>
+  <text x="145" y="144" text-anchor="middle" font-size="12" fill="#78350f">a to-do note, not the work</text>
+  <text x="145" y="164" text-anchor="middle" font-size="12" fill="#78350f">ZERO lines have run</text>
+
+  <!-- arrow 1 -->
+  <line x1="270" y1="125" x2="320" y2="125" stroke="#475569" stroke-width="2" marker-end="url(#arr2)"/>
+  <text x="295" y="112" text-anchor="middle" font-size="12" font-weight="bold" fill="#2563eb">.await</text>
+
+  <!-- stage 2 -->
+  <rect x="325" y="70" width="240" height="110" rx="10" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="445" y="98" text-anchor="middle" font-size="14" font-weight="bold" fill="#1d4ed8">2. Driven — running</text>
+  <text x="445" y="122" text-anchor="middle" font-size="12" fill="#1e3a8a">body executes now</text>
+  <text x="445" y="144" text-anchor="middle" font-size="12" fill="#1e3a8a">hits a wait → pauses,</text>
+  <text x="445" y="164" text-anchor="middle" font-size="12" fill="#1e3a8a">thread walks away (not blocked)</text>
+
+  <!-- arrow 2 -->
+  <line x1="570" y1="125" x2="620" y2="125" stroke="#475569" stroke-width="2" marker-end="url(#arr2)"/>
+  <text x="595" y="112" text-anchor="middle" font-size="12" font-weight="bold" fill="#16a34a">knock!</text>
+
+  <!-- stage 3 -->
+  <rect x="625" y="70" width="210" height="110" rx="10" fill="#f0fdf4" stroke="#16a34a"/>
+  <text x="730" y="98" text-anchor="middle" font-size="14" font-weight="bold" fill="#15803d">3. Done — value</text>
+  <text x="730" y="122" text-anchor="middle" font-size="12" fill="#14532d">resumes where it paused</text>
+  <text x="730" y="144" text-anchor="middle" font-size="12" fill="#14532d">finishes, hands back</text>
+  <text x="730" y="164" text-anchor="middle" font-size="12" fill="#14532d">the String</text>
+
+  <text x="430" y="222" text-anchor="middle" font-size="13" fill="#64748b">never awaited? → stays at stage 1 forever (compiler warns)</text>
+</svg>

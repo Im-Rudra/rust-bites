@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="300" viewBox="0 0 860 300" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="860" height="300" fill="#ffffff"/>
+  <defs>
+    <marker id="arrp" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 z" fill="#2563eb"/>
+    </marker>
+    <marker id="arrpr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 z" fill="#dc2626"/>
+    </marker>
+  </defs>
+  <text x="430" y="34" text-anchor="middle" font-size="17" font-weight="bold" fill="#1e293b">Why Pin exists: a future can point into itself</text>
+
+  <!-- Left: healthy self-reference -->
+  <text x="200" y="70" text-anchor="middle" font-size="14" font-weight="bold" fill="#15803d">Before move — fine</text>
+  <rect x="90" y="85" width="220" height="120" rx="10" fill="#f0fdf4" stroke="#16a34a"/>
+  <text x="200" y="108" text-anchor="middle" font-size="12" fill="#14532d">future at address 0x100</text>
+  <rect x="110" y="120" width="180" height="30" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="200" y="140" text-anchor="middle" font-size="12" fill="#14532d">data (at 0x108)</text>
+  <rect x="110" y="160" width="180" height="30" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="200" y="180" text-anchor="middle" font-size="12" fill="#14532d">ref → 0x108</text>
+  <path d="M290,175 C 330,165 330,140 292,133" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrp)"/>
+
+  <!-- Right: moved, dangling -->
+  <text x="640" y="70" text-anchor="middle" font-size="14" font-weight="bold" fill="#b91c1c">After move — dangling!</text>
+  <rect x="530" y="85" width="220" height="120" rx="10" fill="#fef2f2" stroke="#dc2626"/>
+  <text x="640" y="108" text-anchor="middle" font-size="12" fill="#7f1d1d">future moved to 0x500</text>
+  <rect x="550" y="120" width="180" height="30" rx="6" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="640" y="140" text-anchor="middle" font-size="12" fill="#7f1d1d">data (now at 0x508)</text>
+  <rect x="550" y="160" width="180" height="30" rx="6" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="640" y="180" text-anchor="middle" font-size="12" fill="#7f1d1d">ref → still 0x108 ✗</text>
+  <path d="M548,178 C 470,190 430,150 415,120" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrpr)"/>
+  <text x="420" y="105" text-anchor="middle" font-size="11" fill="#dc2626">points at old,</text>
+  <text x="420" y="120" text-anchor="middle" font-size="11" fill="#dc2626">dead memory</text>
+
+  <text x="430" y="250" text-anchor="middle" font-size="14" font-weight="bold" fill="#1d4ed8">Pin's promise: "this value will NEVER move" → the left picture stays true forever</text>
+  <text x="430" y="275" text-anchor="middle" font-size="12" fill="#64748b">types with no self-references implement Unpin — moving is safe, Pin has no effect on them</text>
+</svg>
