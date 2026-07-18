@@ -46,3 +46,5 @@ async fn timeout<F: Future>(f: F, max: Duration) -> Result<F::Output, Duration> 
 Small pieces (`race`, `sleep`) compose into real tools — this is the async ecosystem's whole design style.
 
 **One-liner:** `join` = everyone finishes; `race` = first wins, losers are dropped (= cancelled); switching only happens at `.await`.
+
+🔨 **Lab:** [labs/lab-06-race-timeout](labs/lab-06-race-timeout/)

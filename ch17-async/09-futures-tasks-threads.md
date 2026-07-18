@@ -42,3 +42,5 @@ while let Some(result) = rx.recv().await {   // async side waits without blockin
 - Ecosystem versions of this pattern: `tokio::task::spawn_blocking`, `tokio::sync::mpsc`.
 
 **One-liner:** Threads for working, async for waiting — and channels marry the two.
+
+🔨 **Lab:** [labs/lab-09-bridge](labs/lab-09-bridge/)

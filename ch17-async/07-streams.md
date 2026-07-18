@@ -41,3 +41,5 @@ Iterator's adapters, async-flavored: `map`, `filter`, plus time-aware ones —
 - Pattern to remember: `while let Some(x) = stream.next().await` is the async `for` loop.
 
 **One-liner:** A stream is an iterator whose `next` may need waiting — same adapters, plus time-aware ones.
+
+🔨 **Lab:** [labs/lab-07-streams](labs/lab-07-streams/)
