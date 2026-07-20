@@ -45,3 +45,5 @@ fn main() {
 - "Poll it, park it, wake on knock" is literally the `Future` trait's mechanics (`poll` + `Waker`) — formalized later in the chapter.
 
 **One-liner:** Futures are plans; the runtime is the engine that runs the plans.
+
+🔨 **Lab:** [labs/lab-01-03-lazy-proof](labs/lab-01-03-lazy-proof/) *(covers notes 01–03)*

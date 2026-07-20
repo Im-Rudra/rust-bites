@@ -12,6 +12,8 @@
 8. [Under the Hood](08-under-the-hood.md) — the Future trait, poll, and why Pin exists
 9. [Futures vs Tasks vs Threads](09-futures-tasks-threads.md) — the decision rule and the bridge pattern
 
+**Labs:** hands-on cargo projects in [labs/](labs/) — `lab-01-03-lazy-proof`, `lab-05-join-channels`, `lab-06-race-timeout`, `lab-07-streams`, `lab-09-bridge` (name = the notes it matches; 04 and 08 are theory, no labs). Start with [labs/README.md](labs/README.md).
+
 **Naming note:** newer revisions of the online book renamed `trpl::run` → `trpl::block_on` and `trpl::race` → `trpl::select` (same behavior; old names still work as aliases).
 
 **Chapter in one breath:** async fns return lazy plans (futures); a runtime cranks them; hardware doorbells wake the waiters; join/race/streams compose plans; Pin keeps self-pointing plans from moving; threads compute, async waits.

@@ -31,3 +31,5 @@ That "knock" is real — Rust calls it a **waker**, and you'll meet it later in 
 - Work that **waits** → async.
 
 **One-liner:** Async = many waiting tasks sharing few threads.
+
+🔨 **Lab:** [labs/lab-01-03-lazy-proof](labs/lab-01-03-lazy-proof/) *(covers notes 01–03)*

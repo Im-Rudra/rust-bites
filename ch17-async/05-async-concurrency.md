@@ -41,3 +41,5 @@ while let Some(msg) = rx.recv().await { ... } // recv: awaits
 - Clone `tx` for multiple producers, same as Ch. 16.
 
 **One-liner:** `join` weaves futures inside one task; `spawn_task` adds another worker; channels let them talk.
+
+🔨 **Lab:** [labs/lab-05-join-channels](labs/lab-05-join-channels/)

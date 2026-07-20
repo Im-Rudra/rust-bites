@@ -35,3 +35,5 @@ let data = future.await;   // NOW it runs; we wait here
 - `.await` only works inside `async` code. Who drives the *outermost* future? A **runtime** — next note.
 
 **One-liner:** An async fn returns a plan; `.await` executes the plan.
+
+🔨 **Lab:** [labs/lab-01-03-lazy-proof](labs/lab-01-03-lazy-proof/) *(covers notes 01–03)*
